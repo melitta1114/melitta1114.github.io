@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#registerBtn:hover {
+  background-color: green;
+} 
+
+.container {
+  padding: 2%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.Regisztraciobutton {
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 2%;
+  margin: 0.5% 0 2.2% 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 0.1em solid #f1f1f1;
+  margin-bottom: 2.5%;
+}
+
+body {
+  color: white;
+  background-color: #333;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.registerbtn {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: darkolivegreen;
+  color: white;
+  padding: 2% 2.5%;
+  margin: 0.8% 0;
+  border: none;
+  cursor: pointer;
+  width: 96%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+a {
+  color: wheat;
+}
+
+.signin {
+  background-color: #333;
+  text-align: center;
+}
+
+ul {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 130%;
+  list-style-type: none;
+  padding: left;
+  overflow: hidden;
+  background-color: grey;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+  ul {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  justify-content: center;
+  }
+  
+  li {
+    float: none;
+    margin-bottom: 10px;
+  }
+}
+
+.active {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: darkolivegreen;
+}

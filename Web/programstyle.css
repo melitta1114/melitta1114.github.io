@@ -1,0 +1,157 @@
+body {
+  background-color: #666;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul {
+  color: darkolivegreen;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 130%;
+  list-style-type: none;
+  padding: left;
+  overflow: hidden;
+  background-color: grey;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  padding: auto;
+  text-decoration: double;
+  margin: auto;
+}
+
+@media (max-width: 1200px) {
+  nav ul {
+    flex-direction: column;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: none;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: darkolivegreen;
+}
+
+table tbody tr td:first-child {
+  font-weight: bold;
+}
+
+.table-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.checkmark {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.checkmark.checked {
+  background-color: #999;
+}
+
+.active {
+  background-color: darkolivegreen;
+}
+
+
+.checkmark-box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  margin-right: 5px;
+  background-color: darkolivegreen;
+  vertical-align: middle;
+}
+
+.checkmark-box.checked {
+  background-color: #999;
+}
+
+.selected {
+  background-color: darkolivegreen;
+}
+
+.selected::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  margin-right: 5px;
+  background-color: darkolivegreen;
+  vertical-align: middle;
+}
+
+.selected::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("darkolivegreen.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.click{
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  table-layout: fixed;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  table {
+    font-size: 80%; /* Csökkentheted a táblázat betűméretét, ha szükséges */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  table {
+    font-size: 90%; /* Csökkentheted a táblázat betűméretét, ha szükséges */
+  }
+}
+
+
