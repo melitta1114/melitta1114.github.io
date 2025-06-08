@@ -1,14 +1,11 @@
 package core;
 
-public class Car implements Vehicle{
+public class Car {
 
     private String type;
-    private int age;
-    public void numberOfWheels(){
-        System.out.println("Az autonak 4 kereke van.");
-    }
+    private Integer age;
 
-    public Car(String type, int age){
+    public Car(String type, Integer age){
         this.type=type;
         this.age=age;
     }
@@ -21,3 +18,4 @@ public class Car implements Vehicle{
                 '}';
     }
 }
+
