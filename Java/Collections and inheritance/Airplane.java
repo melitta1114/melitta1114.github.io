@@ -1,23 +1,27 @@
 package core;
 
-public class Car implements Vehicle{
+public class Airplane implements Vehicle{
 
     private String type;
     private int age;
+    private float lenght;
     public void numberOfWheels(){
-        System.out.println("Az autonak 4 kereke van.");
+        System.out.println("A repulogepnek 2 kereke van.");
     }
 
-    public Car(String type, int age){
+    public Airplane(String type, int age, float lenght){
         this.type=type;
         this.age=age;
+        this.lenght=lenght;
+
     }
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Airplane{" +
                 "type='" + type + '\'' +
                 ", age=" + age +
+                ", lenght=" + lenght +
                 '}';
     }
 }
