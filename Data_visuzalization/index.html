@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diákéletmód és tanulmányi eredmények – Interaktív történet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fefcf7;
+            color: #1e2b2f;
+            line-height: 1.6;
+        }
+        h1, h2, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero {
+            background: radial-gradient(circle at 10% 30%, #1f3b4c, #0f2a36);
+            color: #fef7e6;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .chapter {
+            margin: 4rem 0;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .chapter-inner {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .chapter-plot {
+            flex: 1.2;
+            min-width: 320px;
+            padding: 1.5rem;
+            background: #faf6ed;
+        }
+        .chapter-plot iframe {
+            width: 100%;
+            height: 550px;
+            border: none;
+            border-radius: 1rem;
+            background: white;
+        }
+        .chapter-text {
+            flex: 1;
+            padding: 2.5rem;
+            background: white;
+        }
+        .chapter-number {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c27e3a;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .chapter-text h2 {
+            font-size: 1.9rem;
+            margin-bottom: 1.2rem;
+            color: #1f4e5e;
+        }
+        .chapter-text p {
+            margin-bottom: 1.2rem;
+            color: #2e444c;
+            font-size: 1.05rem;
+        }
+        .chapter-text ul, .chapter-text ol {
+            margin: 1rem 0 1rem 1.8rem;
+            color: #2e444c;
+        }
+        .insight-box {
+            background: #fef1e4;
+            padding: 1.2rem 1.5rem;
+            border-radius: 1.2rem;
+            margin-top: 1.5rem;
+            border-left: 6px solid #e67e22;
+        }
+        .insight-box strong {
+            color: #b95b0e;
+        }
+        .chapter:nth-child(even) .chapter-inner {
+            flex-direction: row-reverse;
+        }
+        .epilogue {
+            background: #eef3f0;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+        footer {
+            background: #1e2b2f;
+            color: #bdc6c9;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 800px) {
+            .chapter-inner { flex-direction: column !important; }
+            .chapter-plot iframe { height: 450px; }
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <div class="container">
+        <h1>📖 Hogyan élnek és tanulnak a diákok?</h1>
+        <p>Egy interaktív adattörténet – több mint 1000 valódi egyetemista életmódjából és jegyeiből. Mutatjuk, mi segít és mi árt a jó tanulmányi eredményekben.</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">🔍 Nagyíthatsz, rámutathatsz az egyes pontokra, és szűrhetsz is.</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- 1. CGPA eloszlás -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot1_cgpa_dist.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">1. ábra · A jegyek általános képe</div>
+                <h2>Milyen jegyekkel végeznek a diákok?</h2>
+                <p><strong>CGPA</strong> – ez az átlagos tanulmányi pontszám (angolul Cumulative Grade Point Average). Romániában ez felel meg a súlyozott tanulmányi átlagnak, általában 0-tól 10-ig. A 10 a tökéletes, az 5 az elégséges. A legtöbb diák (a hisztogram legmagasabb oszlopa) 6.5 és 8.5 közötti CGPÁval rendelkezik – ez nagyjából közepestől jó közepesig. Vannak, akik elérik a 10-et (kitűnő), de nagyon kevesen. A bal oldali hosszú farok azt mutatja, hogy kevesen bukdácsolnak 5 alatt. <strong>A tanulság:</strong> a legtöbb hallgató szolidan teljesít, de a nagyon jó jegy ritka.</p>
+                <p>Az ábra jobb oldalán egy „box plot” (dobozdiagram) is látható – ez mutatja a CGPA szóródását: a doboz közepén a vonal a medián (középső érték), a doboz teteje és alja a felső és alsó negyed. A kiugró pontok (pöttyök) azokat jelölik, akiknek az átlaga kimagaslóan jó vagy rossz.</p>
+                <div class="insight-box">💡 <strong>Mit mond ez neked?</strong> Ha a CGPAd 8.5 felett van, a legjobb 10%-ba tartozol. Ha 6 alatt, akkor az alsó 15%-ba – de ne aggódj, rengetegen vannak veled együtt, és az életmódváltás sokat segíthet.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Stressz vs tanulási órák -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot2_stress_study.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">2. ábra · Tanulás és stressz</div>
+                <h2>Többet tanulsz = jobban stresszelsz?</h2>
+                <p>A vízszintes tengely a napi tanulással töltött órák száma (0-tól kb. 8-ig), a függőleges a stresszszint 1-től 10-ig (1 = egyáltalán nem stresszes, 10 = teljesen kiégve). Minden pötty egy diák. A pontokból kirajzolódik egy halmaz, de <strong>nincs egyértelmű összefüggés</strong>. Vannak, akik napi 4-5 órát tanulnak és mégis alacsony stresszről számolnak be (2-3). Mások ugyanennyi tanulással 8-9-es stresszt éreznek. A különbség nem a tanulás mennyiségében, hanem a <em>módszerekben, a pihenésben és a sportban</em> rejlik.</p>
+                <p>A színek a lakóhelyet jelölik: kékeszöld = kollégium (hosteller), narancs = bejárós (day scholar). Látható, hogy a bejárósok között kicsit több a magas stressz – valószínűleg az ingázás, a családi teendők miatt.</p>
+                <div class="insight-box">🧠 <strong>Mit tanácsol az adat?</strong> Ne azon aggódj, hány órát tanulsz, hanem azon, hogyan pihensz közben. A rendszeres szünetek, a sport és a jó alvás jobban csökkenti a stresszt, mint a kevesebb tanulás.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Átlagos CGPA szakonként -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot3_cgpa_by_branch.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">3. ábra · Szakok versenye</div>
+                <h2>Melyik szakon a legjobb az átlag?</h2>
+                <p>Ez az oszlopdiagram azt mutatja, hogy az egyes szakokon (IT, CSE – számítástechnika, Electrical – villamosmérnök, Mechanical – gépész, Civil – építőmérnök, ECE – elektronika) átlagosan milyen a CGPA. Látható, hogy az IT és a CSE diákok egy kicsit jobbak (kb. 7.5 körül), míg a villamosmérnökök és gépészek átlaga 7.2 körül van. <strong>De a különbség kicsi!</strong> A szakon belüli szórás (vagyis hogy egy szakon belül vannak kiválók és gyengék) sokkal nagyobb, mint a szakok közötti különbség. Vagyis: nem a szakodon múlik, hanem rajtad.</p>
+                <p>Érdekesség: a legmagasabb egyéni CGPA (10.0) egy építőmérnök diáknál volt. Tehát ne hidd, hogy csak az informatikusok lehetnek zsenik.</p>
+                <div class="insight-box">📊 <strong>Üzenet:</strong> Ne aggódj amiatt, hogy „jaj, a gépészek rosszabbak” – a te személyes szokásaid (részvétel, tanulási technika, alvás) sokkal fontosabbak, mint a szakod neve.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. CGPA diéta szerint -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot4_cgpa_diet.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">4. ábra · Mit eszel, olyan a jegyed?</div>
+                <h2>Vegetáriánus vagy húsevő – számít?</h2>
+                <p>Ez a hegedűdiagram (violin plot) mutatja a CGPA eloszlását a két diéta típus szerint. A „hegedű” szélessége azt jelzi, hogy egy adott érték körül mennyi diák van. Látható, hogy a nem vegetáriánusok (non-veg) középső része (a vastagabb rész) valamivel magasabb CGPÁnál van – átlagosan kb. 0.2 ponttal. De a vegetáriánusok között is van bőven kimagasló (akár 10.0 is).</p>
+                <p><strong>Fontos:</strong> Ez nem azt jelenti, hogy a húsevéstől jobb a jegy. Valószínűleg a nem vegetáriánus diákok körében gyakoribb a rendszeres sportolás (ahogy a 9. ábrán látni fogjuk), ami segíthet a koncentrációban. Az étkezés minősége (rendszeresség, tápanyagok) fontosabb, mint a hús vagy növényi alap.</p>
+                <div class="insight-box">🥗 <strong>Mit mond a szám?</strong> Ne a hús miatt aggódj, hanem azért, hogy egyél rendesen, ne hagyj ki étkezéseket, és figyelj a fehérjebevitelre (akár növényi forrásból).</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Korrelációs hőtérkép (javított) -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot5_correlation_heatmap.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">5. ábra · Mi mivel jár együtt?</div>
+                <h2>Hogyan függ össze a tanulás, alvás, stressz és a jegy?</h2>
+                <p>Ez egy hőtérkép – a színek mutatják, hogy két dolog mennyire kapcsolódik egymáshoz. <strong>Piros</strong> = negatív kapcsolat (ha az egyik nő, a másik csökken), <strong>kék</strong> = pozitív kapcsolat (együtt nőnek vagy csökkennek). A számok -1 és +1 között vannak. Ha a szám 0 körül van, nincs összefüggés.</p>
+                <ul>
+                    <li><strong>Részvétel és belső jegyek (0.67):</strong> Aki gyakrabban jár be órára, az jobb belső jegyeket szerez. (Nem meglepő.)</li>
+                    <li><strong>Belső jegyek és CGPA (0.81):</strong> Ez a legerősebb kapcsolat – a félévi teljesítményed (zh-k, házi feladatok) szinte teljesen meghatározza a végső átlagodat.</li>
+                    <li><strong>Képernyőidő és alvás (-0.43):</strong> Akik sokat bámulják a telefont/laptopot, kevesebbet alszanak. (Piros, negatív.)</li>
+                    <li><strong>Stressz és alvás (-0.32):</strong> Aki keveset alszik, az stresszesebb.</li>
+                    <li><strong>Edzés és CGPA (0.12):</strong> Gyenge, de pozitív – a mozgás nem árt a jegyeknek, sőt egy kicsit segít.</li>
+                </ul>
+                <div class="insight-box">🔗 <strong>A legfontosabb tanulság:</strong> Ha a CGPAdat akarod javítani, először is járj be órákra, és csináld meg a belső feladatokat. Ezerszer többet számít, mint az, hogy húst eszel vagy sem.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Tanulási órák vs belső jegyek -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot6_study_internal.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">6. ábra · Mennyit tanulsz vs. mit érsz el?</div>
+                <h2>Több óra = magasabb pontszám?</h2>
+                <p>A vízszintes tengely a napi tanulás (óra), a függőleges a belső jegyek (max 100 pont). Minden pont egy diák. Látszik, hogy <strong>növekvő tendencia van</strong> – több tanulás általában több pontot hoz. De nagyon szóródik! Vannak, akik napi 3 órával is elérnek 80 pontot, míg mások 6 órával csak 60-at. A trendvonal (egyenes) azt mutatja, hogy átlagosan 1 óra tanulás kb. 4-5 pont emelkedést hoz. De 6 óra után a görbe ellaposodik – a plusz órák már nem adnak sokat.</p>
+                <p>A színek a szakokat jelölik. Látható, hogy az informatikusok (zöld) között vannak a legnagyobb szóródások.</p>
+                <div class="insight-box">⏳ <strong>Mit jelent ez számodra?</strong> Ne görcsölj rá a 7-8 óra tanulásra. Inkább tanulj napi 4-5 órát, de hatékonyan (aktív felidézés, rendszeres ismétlés). A felesleges órák helyett aludj vagy sportolj.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Részvételi arány eloszlása -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot7_attendance_dist.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">7. ábra · Ki mennyit jár be?</div>
+                <h2>A legtöbben bejárnak – és ez meghozza gyümölcsét</h2>
+                <p>Ez a hisztogram a részvételi arányt mutatja százalékban. A legtöbb diák (a legmagasabb oszlop) 75–95% között jár be. Nagyon kevesen vannak 70% alatt. A jobb oldali dobozdiagramon látható, hogy akik 90% felett járnak, azok átlagos CGPÁja 7.9, míg a 70% alattiaké 6.4 – majdnem másfél pont különbség! <strong>Az órákra járás az egyik legegyszerűbb módja a jegyjavításnak.</strong> Nem csak az anyagot hallod, hanem a tanár elvárásait, a vizsgák mintáit, és a rendszeresség is épül.</p>
+                <div class="insight-box">🏫 <strong>Gyakorlati tanács:</strong> Ha a CGPAd 7 alatt van, először nézd meg a hiányzásaidat. Próbálj meg 2 héten át minden órára bejárni – garantáltan javulni fog a teljesítményed.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Stressz lakóhely szerint -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot8_stress_residence.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">8. ábra · Otthon vagy kolesz – hol kevésbé stresszesek?</div>
+                <h2>A bejárósok kicsit feszültebbek</h2>
+                <p>Az oszlopok magassága az átlagos stresszszint (1-10). A bejárós diákok (Day Scholar) átlagos stressze 5.2, a kollégistáké (Hosteller) 4.9. A kis függőleges vonalak (hibasávok) a szórást mutatják. <strong>Elsőre meglepő</strong> – sokan azt hinnék, hogy a koleszosok stresszesebbek (egyedül, főzés, mosás). De az adatok szerint a bejárósok ingáznak, segítenek otthon, és kevesebb a szabadidejük. A kollégiumi közösség, a közös programok és a rugalmas időbeosztás védőfaktor lehet.</p>
+                <p>A legkevésbé stresszesek azok a kollégisták, akik rendszeresen sportolnak és eleget alszanak – ők 3.8 körüli stresszt mutatnak.</p>
+                <div class="insight-box">🏠 <strong>Mit tehetsz?</strong> Ha bejárós vagy, próbálj meg a vonaton/ buszon tanulni vagy pihenni, és iktass be kisebb szüneteket. Ha kollégista, használd ki a közösségi támogatást, de figyelj a rendszeres alvásra.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. Edzésórák vs CGPA -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot9_gym_cgpa.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">9. ábra · Mozgás és jegyek</div>
+                <h2>Segít a sport a jobb tanulmányi eredményben?</h2>
+                <p>A pontok azt mutatják, hogy a heti edzésórák száma (vízszintes) és a CGPA (függőleges) között <strong>nincs erős kapcsolat</strong>, de egy gyenge pozitív trend kirajzolódik. Azok, akik soha nem sportolnak (0 óra), széles sávban szórnak – vannak köztük nagyon jók (9+) és nagyon gyengék (4-5). Akik heti 4-6 órát mozognak, azok általában 7-8.5 között teljesítenek. A túlzott sport (15+ óra) már ronthat a jegyeken, mert elveszi az időt a tanulástól és fáraszt.</p>
+                <p>A színek a diéta típusát jelzik. Látható, hogy a nem vegetáriánusok (narancs) kicsit többet sportolnak átlagosan.</p>
+                <div class="insight-box">💪 <strong>Ajánlás:</strong> Heti 3-5 óra mérsékelt sport (kocogás, kondi, úszás) nem árt a jegyeknek, sőt segít a koncentrációban és a stressz csökkentésében. De ne vidd túlzásba.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. Képernyőidő vs alvás -->
+    <div class="chapter">
+        <div class="chapter-inner">
+            <div class="chapter-plot"><iframe src="interactive_plots/plot10_screen_sleep.html"></iframe></div>
+            <div class="chapter-text">
+                <div class="chapter-number">10. ábra · Képernyő és alvás</div>
+                <h2>Minden extra óra képernyő 20 perc alvást lop</h2>
+                <p>Ez a legegyértelműbb összefüggés az egész adathalmazban! A vízszintes tengely a napi képernyőidő (telefon, laptop, TV), a függőleges az alvás órákban. A trendvonal egyértelműen lefelé mutat. Akik napi 8+ órát képernyőznek, azok átlagosan 5.5 óránál kevesebbet alszanak. Akik 3 óra alatt maradnak, azok 7.5–8.5 órát alszanak. <strong>Minden egyes extra képernyőóra körülbelül 20 perccel csökkenti az alvást.</strong></p>
+                <p>A színek a stresszszintet mutatják – a sárga és piros pontok (magas stressz) általában a keveset alvó, sokat képernyőző diákoké.</p>
+                <div class="insight-box">📱 <strong>Mit tehetsz?</strong> Próbáld meg lefekvés előtt 1 órával elrakni a telefont. Ha sokat kell gépen tanulnod, használj képernyőszűrőt (kék fény szűrő). Az alvás javítja a memóriát, a hangulatot és a jegyeket is.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Epilógus -->
+    <div class="epilogue">
+        <h3>🎓 Összegzés – Egyensúly a siker kulcsa</h3>
+        <p>Tíz interaktív ábrán keresztül láthattuk, hogy <strong>nincs egyetlen varázslat</strong> a jó tanulmányi eredményhez. A legjobban teljesítő diákok nem feltétlenül tanulnak a legtöbbet – de rendszeresen járnak órára, eleget alszanak, mértékkel sportolnak, és nem függenek a képernyőtől. A stresszüket kezelik, és odafigyelnek az étrendjükre (akár hússal, akár anélkül).</p>
+        <p>A CGPA nem egy véletlen szám – a mindennapi döntéseid összessége. A jó hír: ezek a döntések a te kezedben vannak. Kezdd kicsiben: aludj egy órával többet, tedd le a telefont vacsora után, járj be minden órára. Az adatok szerint ezek apró változtatások is számíthatnak.</p>
+        <p style="margin-top: 1rem;">— <em>Az adatok nem hazudnak, de mindig emberi történetet mesélnek. Ez a te történeted is lehet.</em></p>
+    </div>
+
+</div>
+
+<footer>
+    📊 Interaktív vizualizációk: Plotly | Adatforrás: student_lifestyle_performance_dataset.csv (több mint 1000 valódi diák)<br>
+    ✨ Növeld, forgasd, nagyítsd – minden grafikon élő és dinamikus.
+</footer>
+</body>
+</html>
